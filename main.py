@@ -25,44 +25,18 @@ from plotly.subplots import make_subplots
 import plotly.express
 import pandas
 
-def read_csv_data(filepath: str, x_axis_index, y_axis_index):
-    with open(filepath) as file:
-        reader = csv.reader(file)
-        x_axis = []
-        y_axis = []
-        for line in reader:
-            x_axis.append(line[x_axis_index])
-            y_axis.append(line[y_axis_index])
-        return (x_axis, y_axis)
+import plotly.graph_objects as go
+from typing import List, Tuple
+import csv
 
+from dataset_extract import *
+import graphs
 
-def plot(data) -> None:
-    """Plot the graph
-    """
+# Extract the data
 
-    fig = plotly.express.line(data[0], x="year", y="lifeExp", color='country')
-    fig.show()
+sea_ice_data = extract_sea_ice('datasets/sea-ice-data.csv')
+co2_data = extract_co2emission_top_five('datasets/co2-data.csv')
+temp_data = extract_temperatures('datasets/temperature-data.csv')
 
-
-
-if __name__ == '__main__':
-    # When you are ready to check your work with python_ta, uncomment the following lines.
-    #     # (Delete the "#" and space before each line.)
-    #     # IMPORTANT: keep this code indented inside the "if __name__ == '__main__'" block
-    #     # Leave this code uncommented when you submit your files.
-    # import python_ta
-    #
-    # python_ta.check_all(config={
-    #     'allowed-io': ['read_csv_data'],
-    #     'extra-imports': ['python_ta.contracts', 'csv', 'datetime',
-    #                       'plotly.graph_objects', 'plotly.subplots'],
-    #     'max-line-length': 100,
-    #     'max-args': 6,
-    #     'max-locals': 25,
-    #     'disable': ['R1705'],
-    # })
-
-    import python_ta.contracts
-
-    python_ta.contracts.DEBUG_CONTRACTS = False
-    python_ta.contracts.check_all_contracts()
+# Graph the data
+graphs.plot(sea_ice_data)

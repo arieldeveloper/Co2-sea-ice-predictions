@@ -110,3 +110,19 @@ def extract_sea_ice(filename: str) -> Dict[int, float]:
         final_dict[int(line[0])] = float(line[4])
 
     return final_dict
+
+
+def make_x_y_lists(data: Dict[int, float]) -> Tuple[list, list]:
+    """Turn dict of data into two lists, one containing all the keys and one
+     containing all values
+
+    Returns a tuple containing a list of all x values and a list of all y values.
+
+    Preconditions:
+    - data must be in dict format as outputted by extract_xxx functions
+
+    """
+    x = [key for key in data]
+    y = [data[key] for key in data]
+
+    return (x, y)
