@@ -63,13 +63,13 @@ def three_graphs_plot(data1: Dict[int, float], data2: Dict[int, float], data3: D
 
     # Update xaxis properties
     fig.update_xaxes(title_text="Year", row=1, col=1)
-    fig.update_xaxes(title_text="Temperature", type="log", row=2, col=1)
-    fig.update_xaxes(title_text="CO2 emission", row=3, col=1)
+    fig.update_xaxes(title_text="CO2 emission", row=2, col=1)
+    fig.update_xaxes(title_text="Temperature", type="log", row=3, col=1)
 
     # Update yaxis properties
     fig.update_yaxes(title_text="CO2 emission", row=1, col=1)
-    fig.update_yaxes(title_text="Sea-ice index", row=2, col=1)
-    fig.update_yaxes(title_text="Temperature", row=3, col=1)
+    fig.update_yaxes(title_text="Temperature", row=2, col=1)
+    fig.update_yaxes(title_text="Sea-ice index", row=3, col=1)
 
     fig.update_layout(height=900, width=1000, title_text=title)
     fig.show()
