@@ -119,8 +119,7 @@ def make_x_y_lists(data: Dict[int, float]) -> Tuple[list, list]:
     Returns a tuple containing a list of all x values and a list of all y values.
 
     Preconditions:
-    - data must be in dict format as outputted by extract_xxx functions
-
+        - data must be in dict format as outputted by extract_xxx functions
     """
     x = [key for key in data]
     y = [data[key] for key in data]

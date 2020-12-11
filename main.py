@@ -25,7 +25,6 @@ from plotly.subplots import make_subplots
 import plotly.express
 import pandas
 
-import plotly.graph_objects as go
 from typing import List, Tuple
 import csv
 
@@ -43,4 +42,4 @@ temp_data = extract_temperatures('datasets/temperature-data.csv')
 # Sea ice over time graph
 # graphs.plot(sea_ice_data, title="Sea ice concentration over time")
 
-graphs.multiple_graphs_plot(co2_data, sea_ice_data, temp_data, title="Sea ice concentration over time")
+graphs.three_graphs_plot(co2_data, sea_ice_data, temp_data, title="All graphs")
