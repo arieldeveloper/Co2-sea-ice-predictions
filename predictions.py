@@ -75,7 +75,7 @@ def make_predictions_co2(x_values: list, y_values: list, time_frame: int) -> dic
     return predicted_values
 
 
-def make_predictions_temp(x_values: list, y_values: list, predicted_co2_values: int) -> dict:
+def make_predictions_temp(x_values: list, y_values: list, predicted_co2_values: dict) -> dict:
     """given the dataset and the time frame, return the predicted values
 
     takes in the dataset and the time frame
@@ -87,8 +87,8 @@ def make_predictions_temp(x_values: list, y_values: list, predicted_co2_values: 
 
     predicted_values = {}
 
-    for co2 in range(predicted_co2_values):
-        predicted_values[co2] = line_output(slope, intercept, co2)
+    for year in predicted_co2_values:
+        predicted_values[year] = line_output(slope, intercept, predicted_co2_values[year])
 
     return predicted_values
 
