@@ -1,4 +1,3 @@
-import plotly.graph_objects as go
 from typing import List, Tuple, Dict
 import csv
 
@@ -85,7 +84,7 @@ def extract_temperatures(filename: str) -> Dict[int, float]:
 
     final_dict = {x: full_dict[x]/months_counted[x] for x in range(1979, 2016)}
 
-    return full_dict
+    return final_dict
 
 
 def extract_sea_ice(filename: str) -> Dict[int, float]:
@@ -125,3 +124,33 @@ def make_x_y_lists(data: Dict[int, float]) -> Tuple[list, list]:
     y = [data[key] for key in data]
 
     return (x, y)
+
+
+def extract_list_map(filename: str, year: int) -> List[List]:
+    """Extract the list of values needed for the Choropleth map.
+
+    The return value is a list of lists. Each inner-list contains two strings and a float:
+    - First string: The code of the country
+    - Second string: The country name
+    - Float value: CO2 emission
+
+    Preconditions:
+        - filename refers to a CSV file in the format specified in the written report.
+    """
+    with open(filename) as file:
+        reader = csv.reader(file)
+        # skip header row
+        next(reader)
+        data = [row for row in reader]
+
+    final_list = []
+
+    for line in data:
+        inner_list = []
+        if line[2] == str(year) and line[0] != '':
+            inner_list.append(line[0])
+            inner_list.append(line[1])
+            inner_list.append(float(line[3]))
+            final_list.append(inner_list)
+
+    return final_list
