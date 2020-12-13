@@ -8,7 +8,7 @@ from dataset_extract import *
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
-def create_linear_regression(x_values:list, y_values:list):
+def create_linear_regression(x_values: list, y_values: list):
     """ Takes in a list of x and y values and returns a slope and intercept
     for the linear regression line
     """
@@ -57,15 +57,13 @@ def line_output(m, b, x):
     y = (m * x) + b
     return y
 
-def make_predictions(data, time_frame):
+def make_predictions_co2(x_values: list, y_values: list, time_frame: int) -> dict:
     """given the dataset and the time frame, return the predicted values
 
     takes in the dataset and the time frame
     returns a dictionary containing the year as the key and the prediction
     as the value
     """
-    x_values = [key for key in data]
-    y_values = [data[key] for key in data]
 
     slope, intercept = create_linear_regression(x_values, y_values)
 
@@ -76,8 +74,30 @@ def make_predictions(data, time_frame):
 
     return predicted_values
 
+
+def make_predictions_temp(x_values: list, y_values: list, predicted_co2_values: int) -> dict:
+    """given the dataset and the time frame, return the predicted values
+
+    takes in the dataset and the time frame
+    returns a dictionary containing the year as the key and the prediction
+    as the value
+    """
+
+    slope, intercept = create_linear_regression(x_values, y_values)
+
+    predicted_values = {}
+
+    for co2 in range(predicted_co2_values):
+        predicted_values[co2] = line_output(slope, intercept, co2)
+
+    return predicted_values
+
+
 def add_predictions_to_data(data: dict, predicted_values: dict):
     """add the predicted values dictionary into the data dict
     """
+    new_data = data.copy()
     for key in predicted_values:
-        data[key] = predicted_values[key]
+        new_data[key] = predicted_values[key]
+
+    return new_data
