@@ -1,6 +1,19 @@
 """
+import csv
+import datetime
+from typing import Dict, List
+
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import plotly.express
+import pandas
+
+from typing import List, Tuple
+import csv
+=======
 Main file running all the other classes
 """
+
 
 from dataset_extract import *
 import graphs
@@ -20,3 +33,4 @@ y_values = [co2_data[key] for key in co2_data]
 slope, intercept = create_linear_regression(x_values, y_values)
 prediction2025 = line_output(slope, intercept, 2025)
 
+graphs.three_graphs_plot(co2_data, temp_data, sea_ice_data, title="All graphs")
