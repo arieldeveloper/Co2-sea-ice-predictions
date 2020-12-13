@@ -59,15 +59,25 @@ def line_output(m, b, x):
 
 def make_predictions(data, time_frame):
     """given the dataset and the time frame, return the predicted values
+
+    takes in the dataset and the time frame
+    returns a dictionary containing the year as the key and the prediction
+    as the value
     """
     x_values = [key for key in data]
     y_values = [data[key] for key in data]
 
     slope, intercept = create_linear_regression(x_values, y_values)
 
-    predicted_values = []
+    predicted_values = {}
 
-    for year in range(2016, 2015+time_frame+1):
-        predicted_values.append(line_output(slope, intercept, year))
+    for year in range(2016, 2015 + time_frame + 1):
+        predicted_values[year] = line_output(slope, intercept, year)
 
     return predicted_values
+
+def add_predictions_to_data(data: dict, predicted_values: dict):
+    """add the predicted values dictionary into the data dict
+    """
+    for key in predicted_values:
+        data[key] = predicted_values[key]
