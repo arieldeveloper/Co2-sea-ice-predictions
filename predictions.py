@@ -8,8 +8,10 @@ from dataset_extract import *
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
-def create_linear_regression(x_values, y_values):
-
+def create_linear_regression(x_values:list, y_values:list):
+    """ Takes in a list of x and y values and returns a slope and intercept
+    for the linear regression line
+    """
     # Creating the x and y arrays as numpy arrays
 
     x = np.array(x_values)
@@ -48,9 +50,24 @@ def create_linear_regression(x_values, y_values):
     plt.show()
     return slope, intercept_value
 
+
 def line_output(m, b, x):
     """Output a y value given an x and the m and b value of the line
     """
     y = (m * x) + b
     return y
 
+def make_predictions(data, time_frame):
+    """given the dataset and the time frame, return the predicted values
+    """
+    x_values = [key for key in data]
+    y_values = [data[key] for key in data]
+
+    slope, intercept = create_linear_regression(x_values, y_values)
+
+    predicted_values = []
+
+    for year in range(2016, 2015+time_frame+1):
+        predicted_values.append(line_output(slope, intercept, year))
+
+    return predicted_values
