@@ -93,6 +93,23 @@ def make_predictions_temp(x_values: list, y_values: list, predicted_co2_values: 
     return predicted_values
 
 
+def make_predictions_sea_ice(x_values: list, y_values: list, predicted_temp_values: dict) -> dict:
+    """given the dataset and the time frame, return the predicted values
+
+    takes in the dataset and the time frame
+    returns a dictionary containing the year as the key and the prediction
+    as the value
+    """
+
+    slope, intercept = create_linear_regression(x_values, y_values)
+
+    predicted_values = {}
+
+    for year in predicted_temp_values:
+        predicted_values[year] = line_output(slope, intercept, predicted_temp_values[year])
+
+    return predicted_values
+
 def add_predictions_to_data(data: dict, predicted_values: dict):
     """add the predicted values dictionary into the data dict
     """
