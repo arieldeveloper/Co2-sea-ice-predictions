@@ -32,7 +32,7 @@ updated_temp_data = add_predictions_to_data(temp_data, temp_predictions)
 x_values_sea_ice = [temp_data[key] for key in temp_data]
 y_values_sea_ice = [sea_ice_data[key] for key in sea_ice_data]
 
-sea_ice_predictions = make_predictions_temp(x_values_sea_ice, y_values_sea_ice, temp_predictions)
+sea_ice_predictions = make_predictions_sea_ice(x_values_sea_ice, y_values_sea_ice, temp_predictions)
 updated_sea_ice = add_predictions_to_data(sea_ice_data, sea_ice_predictions)
 
 # graphs.three_graphs_plot(co2_data, temp_data, sea_ice_data, title="All graphs")
