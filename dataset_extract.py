@@ -3,10 +3,9 @@
 DESCRIPTION:
 ===============================
 
-This Python module contains the program and tests described in Part 3.
-You can run this file as given to see the pytest report given in the handout.
-Your task is to fix all errors in this file so that each test passes
-(see assignment handout for details).
+This module contains 4 functions that extract pertinent data from our three datasets that are used
+to make predictions and for graphing and for creating a choropleth map. It also contains 1 function that
+converts a dictionary into a tuple of lists. (see below)
 
 Copyright and Usage Information
 ===============================
@@ -16,7 +15,7 @@ from CSC110 at the University of Toronto St. George campus. All forms of
 distribution of this code, whether as given or with any changes, are
 expressly prohibited.
 
-This file is Copyright (c) Ariel Chouminov, Oliver Laranjeira, Ram Chawla and Umayrah Chonee.
+This file is Copyright (c) Ariel Chouminov, Oliver Laranjeira, Ramya Chawla and Umayrah Chonee.
 """
 # import statements
 from typing import List, Tuple, Dict
