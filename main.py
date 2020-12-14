@@ -25,9 +25,9 @@ import predictions
 TIME_FRAME = 15
 
 # Extract the data
-sea_ice_data = dataset_extract.extract_sea_ice('datasets/sea-ice-data.csv')
-co2_data = dataset_extract.extract_co2emission_top_five('datasets/co2-data.csv')
-temp_data = dataset_extract.extract_temperatures('datasets/temperature-data.csv')
+sea_ice_data = dataset_extract.extract_sea_ice('sea-ice-data.csv')
+co2_data = dataset_extract.extract_co2emission_top_five('co2-data.csv')
+temp_data = dataset_extract.extract_temperatures('temperature-data.csv')
 
 # co2 prediction in dictionary format
 x_values_co2 = [key for key in co2_data]

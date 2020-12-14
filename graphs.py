@@ -115,7 +115,7 @@ def make_map(year: int) -> None:
     Preconditions:
         - 2018 >= year >= 1979
     """
-    list_map = extract_list_map('datasets/co2-data.csv', year)
+    list_map = extract_list_map('co2-data.csv', year)
     # Accumulators
     list_code = []
     list_country_name = []
