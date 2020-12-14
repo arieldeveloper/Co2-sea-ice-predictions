@@ -25,9 +25,9 @@ import predictions
 TIME_FRAME = 15
 
 # Extract the data
-sea_ice_data = dataset_extract.extract_sea_ice('sea-ice-data.csv')
-co2_data = dataset_extract.extract_co2emission_top_five('co2-data.csv')
-temp_data = dataset_extract.extract_temperatures('temperature-data.csv')
+sea_ice_data = dataset_extract.extract_sea_ice('datasets/sea-ice-data.csv')
+co2_data = dataset_extract.extract_co2emission_top_five('datasets/co2-data.csv')
+temp_data = dataset_extract.extract_temperatures('datasets/temperature-data.csv')
 
 # co2 prediction in dictionary format
 x_values_co2 = [key for key in co2_data]
@@ -53,5 +53,4 @@ updated_sea_ice = predictions.add_predictions_to_data(sea_ice_data, sea_ice_pred
 
 graphs.three_graphs_plot(updated_co2_data, updated_temp_data, updated_sea_ice, 'Graphs')
 graphs.make_map(2018)
-
 

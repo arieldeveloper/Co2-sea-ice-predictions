@@ -95,13 +95,13 @@ def three_graphs_plot(co2_data: Dict[int, float], temp_data: Dict[int, float],
 
     # Update xaxis properties
     fig.update_xaxes(title_text="Year", row=1, col=1)
-    fig.update_xaxes(title_text="CO2 emission", row=2, col=1)
-    fig.update_xaxes(title_text="Temperature", row=3, col=1)
+    fig.update_xaxes(title_text="CO2 emission (million tons per year)", row=2, col=1)
+    fig.update_xaxes(title_text="Temperature (degrees celsius)", row=3, col=1)
 
     # Update yaxis properties
-    fig.update_yaxes(title_text="CO2 emission", row=1, col=1)
-    fig.update_yaxes(title_text="Temperature", row=2, col=1)
-    fig.update_yaxes(title_text="Sea-ice index", row=3, col=1)
+    fig.update_yaxes(title_text="CO2 emission (million tons per year)", row=1, col=1)
+    fig.update_yaxes(title_text="Temperature (degrees celsius)", row=2, col=1)
+    fig.update_yaxes(title_text="Sea-ice index (million square kilometers)", row=3, col=1)
 
     fig.update_layout(height=900, width=1500, title_text=title)
     fig.show()

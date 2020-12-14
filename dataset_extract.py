@@ -4,8 +4,8 @@ DESCRIPTION:
 ===============================
 
 This module contains 4 functions that extract pertinent data from our three datasets that are used
-to make predictions and for graphing and for creating a choropleth map. It also contains 1 function that
-converts a dictionary into a tuple of lists. (see below)
+to make predictions and for graphing and for creating a choropleth map. It also contains 1 function
+that converts a dictionary into a tuple of lists. (see below)
 
 Copyright and Usage Information
 ===============================

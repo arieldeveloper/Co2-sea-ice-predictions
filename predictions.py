@@ -28,6 +28,7 @@ from typing import Tuple, Dict
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import numpy as np
+# import matplotlib.pyplot as plt
 
 
 def make_predictions_co2(x_values: list, y_values: list, time_frame: int) -> Dict[int, float]:
@@ -124,20 +125,22 @@ def create_linear_regression(x_values: list, y_values: list) -> Tuple[int, int]:
     slope = regressor.coef_[0]
     intercept_value = regressor.intercept_
 
-    # Visualizing the training set results
-    # plt.scatter(x_train, y_train, color='red')
+    # Visualizing the training set results, please see report - Computational Plan
+    # for reason that code is commented out
+    # plt.scatter(x_train, y_train, color='yellow')
     # plt.plot(x_train, regressor.predict(x_train), color='blue')
-    # plt.title('C02 growth (training set)')
+    # plt.title('CO2 - temperature (training set)')
     # plt.xlabel('years')
-    # plt.ylabel('co2 values')
+    # plt.ylabel('Temperature')
     # plt.show()
 
-    # Visualizing the Test set results
+    # Visualizing the Test set results, please see report - Computational Plan
+    # for reason that code is commented out
     # plt.scatter(x_test, y_test, color='red')
     # plt.plot(x_train, regressor.predict(x_train), color='blue')
-    # plt.title('Co2 Growth (Test set)')
-    # plt.xlabel('years')
-    # plt.ylabel('c02 values')
+    # plt.title('Temperature - Sea-Ice Index (Test set)')
+    # plt.xlabel('Temperature')
+    # plt.ylabel('Sea-Ice Index')
     # plt.show()
     return (slope, intercept_value)
 
