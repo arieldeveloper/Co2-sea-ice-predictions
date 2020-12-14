@@ -3,7 +3,15 @@
 DESCRIPTION:
 ===============================
 
-NEED DESCRIPTION HERE...
+This module contains three main functions: The first one predicts future co2 emission values,
+the second one predicts future average land surface temperature values based on predicted co2
+emission values and the third one predicts future sea-ice index based on the predicted average
+land surface temperature.
+
+There are also three helper functions: The first one returns the slope and intercept of a linear
+regression based on its inputted x and y values, the second one returns a value based on the
+inputted x, m and b values. The third helper function returns a dictionary that combines the two
+inputted dictionaries.
 
 Copyright and Usage Information
 ===============================
@@ -90,27 +98,6 @@ def make_predictions_sea_ice(x_values: list, y_values: list, predicted_temp_valu
     return predicted_values
 
 
-def add_predictions_to_data(data: dict, predicted_values: dict) -> Dict[int, float]:
-    """
-    Return a dictionary consisting of all key value pairs inside data and predicted_values
-
-    Preconditions:
-        - data should be a dictionary with the key as an int and the corresponding value
-        as a float value.
-        - predicted_values should be a dictionary with the key as an int and the corresponding value
-        as a float value.
-
-    >>> final_dict = add_predictions_to_data({2000: 10.0, 2001: 10.5, 2002: 11.0}, {2003: 11.5, 2004: 12.0})
-    >>> final_dict == {2000: 10.0, 2001: 10.5, 2002: 11.0, 2003: 11.5, 2004: 12.0}
-    True
-    """
-    new_data = data.copy()
-    for key in predicted_values:
-        new_data[key] = predicted_values[key]
-
-    return new_data
-
-
 def create_linear_regression(x_values: list, y_values: list) -> Tuple[int, int]:
     """
     Takes in a list of x and y values and returns a tuple containing two values:
@@ -162,6 +149,27 @@ def line_output(m: float, b: float, x: float) -> float:
     """
     y = (m * x) + b
     return y
+
+
+def add_predictions_to_data(data: dict, predicted_values: dict) -> Dict[int, float]:
+    """
+    Return a dictionary consisting of all key value pairs inside data and predicted_values
+
+    Preconditions:
+        - data should be a dictionary with the key as an int and the corresponding value
+        as a float value.
+        - predicted_values should be a dictionary with the key as an int and the corresponding value
+        as a float value.
+
+    >>> final_dict = add_predictions_to_data({2000: 10.0, 2001: 10.5, 2002: 11.0}, {2003: 11.5, 2004: 12.0})
+    >>> final_dict == {2000: 10.0, 2001: 10.5, 2002: 11.0, 2003: 11.5, 2004: 12.0}
+    True
+    """
+    new_data = data.copy()
+    for key in predicted_values:
+        new_data[key] = predicted_values[key]
+
+    return new_data
 
 
 if __name__ == '__main__':
