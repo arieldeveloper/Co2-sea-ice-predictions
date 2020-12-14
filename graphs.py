@@ -59,7 +59,7 @@ def three_graphs_plot(co2_data: Dict[int, float], temp_data: Dict[int, float],
     # making subplots
     fig = make_subplots(rows=3, cols=1,
                         subplot_titles=("CO2 concentration over time",
-                                        "Average land-Surface Temperature over CO2",
+                                        "Average land-Surface Temperature over CO2 Emission",
                                         "Sea-Ice Index over average land-surface temperature"))
     # Adding graph 1
     fig.add_trace(go.Scatter(x=df1['year'],
@@ -146,15 +146,7 @@ def make_map(year: int) -> None:
             showframe=False,
             showcoastlines=False,
             projection_type='equirectangular'
-        ),
-        annotations=[dict(
-            x=0.55,
-            y=0.1,
-            xref='paper',
-            yref='paper',
-            showarrow=False
-        )]
-    )
+        ))
 
     fig.show()
 
